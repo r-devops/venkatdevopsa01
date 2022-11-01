@@ -1,3 +1,5 @@
+COMPONENT=mongodb
+LOG=/tmp/${COMPONENT}
 source common.sh
 
 PRINT "Configure YUM Repos"
