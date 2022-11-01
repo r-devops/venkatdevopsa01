@@ -1,5 +1,5 @@
 COMPONENT=rabbitmq
-source common.sh
+source ./common.sh
 LOG_FILE=/tmp/${COMPONENT}
 
 echo "Setup RabbitMQ Repos"

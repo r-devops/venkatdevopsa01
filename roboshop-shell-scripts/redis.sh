@@ -1,6 +1,6 @@
 LOG_FILE=/tmp/redis
 
-source common.sh
+source ./common.sh
 
 echo "Setup YUM Repos for Redis"
 dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y &>>$LOG_FILE
