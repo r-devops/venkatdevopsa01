@@ -1,3 +1,5 @@
+
+echo "Mongo script to install"
 COMPONENT=mongodb
 LOG=/tmp/${COMPONENT}
 source common.sh
