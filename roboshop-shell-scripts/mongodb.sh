@@ -9,7 +9,7 @@ curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/robos
 StatusCheck $?
 
 echo "Install MongoDB"
-yum install -y -nogpgcheck mongodb-org &>>${LOG}
+yum install -y --nogpgcheck mongodb-org &>>${LOG}
 StatusCheck $?
 
 echo "Configure MongoDB Service"
