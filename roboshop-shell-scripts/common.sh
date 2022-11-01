@@ -26,7 +26,7 @@ APP_PREREQ() {
     StatusCheck $?
     fi 
     
-    yum install -y -nogpgcheck unzip 
+    yum install -y --nogpgcheck unzip 
 
     echo "Download ${COMPONENT} Application code "
     curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>${LOG_FILE}
@@ -71,7 +71,7 @@ NODEJS() {
     StatusCheck $?
 
     echo "Installing NodeJS"
-    yum install nodejs -nogpgcheck -y &>>${LOG_FILE}
+    yum install nodejs --nogpgcheck -y &>>${LOG_FILE}
     StatusCheck $?
 
     APP_PREREQ
@@ -86,7 +86,7 @@ NODEJS() {
 JAVA() {
 
     echo "Install Maven "
-    yum install maven -nogpgcheck -y &>>${LOG_FILE}
+    yum install maven --nogpgcheck -y &>>${LOG_FILE}
     StatusCheck $?
 
     APP_PREREQ
@@ -105,7 +105,7 @@ JAVA() {
 PYTHON() {
 
     echo "Install Python 3"
-    yum install python36 gcc python3-devel -y -nogpgcheck &>>${LOG_FILE}
+    yum install python36 gcc python3-devel -y --nogpgcheck &>>${LOG_FILE}
     StatusCheck $?
 
     APP_PREREQ
@@ -129,7 +129,7 @@ PYTHON() {
 
 GOLANG() {
 
-    yum install golang -y -nogpgcheck &>>${LOG_FILE}
+    yum install golang -y --nogpgcheck &>>${LOG_FILE}
     StatusCheck $?
 
     APP_PREREQ
