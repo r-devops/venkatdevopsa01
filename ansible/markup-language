@@ -1,0 +1,32 @@
+XML 
+<name>VenkatK</name>
+<accountNumber>123456789</accountNumber>
+<mobileNumber>519111111,5191111113<mobileNumber>
+<denomination>
+    <100>2</100>
+    <5>10</5>
+<denomination>
+
+JSON 
+
+{
+    "name" : "Venkat K",
+    "accountnumber" : "123456789",
+    "mobileNumber"  : [519111111, 5191111113 ], 
+    "denomination"  : {
+        "100" : 2,
+        "5"   : 10
+    }
+
+}
+
+YAML
+
+name: Venkat K
+accountNumber: 123456789
+mobileNumber: 
+    - 519111111
+    - 5191111113
+denomination: 
+   100: 2
+   5: 10     
