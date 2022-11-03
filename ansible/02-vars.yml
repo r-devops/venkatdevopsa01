@@ -5,7 +5,7 @@
   tasks: 
     - name: Print Hello 
       ansible.builtin.debug: 
-        msg: URL= {{ URL}}
+        msg: "Sweta - {{ URL}}"
 
 - name: Demo on variables - from file
   hosts: webserver
@@ -14,4 +14,4 @@
   tasks: 
     - name: Print Hello 
       ansible.builtin.debug: 
-        msg: URL= {{ URL}}        
+        msg: "{{ URL}} - Kranti"         
