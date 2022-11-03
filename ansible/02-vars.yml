@@ -31,4 +31,12 @@
     - name: Print Hello 
       ansible.builtin.debug: 
         msg: "{{ URL}} - Inventory"  
-        
+
+
+
+- name: Print Fact/pre-defined variable 
+  hosts: webserver
+  tasks: 
+    - name: Print Hello 
+      ansible.builtin.debug: 
+        msg: "hostname - {{ ansible_hostname}} " 
