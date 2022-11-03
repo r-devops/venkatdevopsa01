@@ -54,3 +54,10 @@
       ansible.builtin.debug:
         msg: "{{out.stdout}}"    
        
+    - name: declare a variable/fact    
+      ansible.builtin.set_fact:
+        SHELL_STDOUT: "{{out.stdout}}"
+
+    - name: print shell out from variable 
+      ansible.builtin.debug:
+        msg: "{{SHELL_STDOUT}}"
