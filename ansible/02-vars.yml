@@ -41,7 +41,7 @@
       ansible.builtin.debug: 
         msg: "hostname - {{ ansible_hostname}} " 
         msg: "Ip address - {{ansible_all_ipv4_addresses}}"
-        
+
 
 - name: Register a variable 
   hosts: webserver
@@ -49,4 +49,8 @@
     - name: Get uptime 
       ansible.builtin.shell: uptime 
       register: out 
+
+    - name: print out registered variable 
+      ansible.builtin.debug:
+      msg: "{{out.stdout}}"    
        
