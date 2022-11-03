@@ -24,3 +24,11 @@
         msg: "{{ URL}} - Suhasini"  
       vars: 
         URL: task.example.com    
+
+- name: Demo on variables from inventory file
+  hosts: webserver
+  tasks: 
+    - name: Print Hello 
+      ansible.builtin.debug: 
+        msg: "{{ URL}} - Inventory"  
+        
