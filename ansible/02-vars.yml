@@ -14,4 +14,13 @@
   tasks: 
     - name: Print Hello 
       ansible.builtin.debug: 
-        msg: "{{ URL}} - Kranti"         
+        msg: "{{ URL}} - Kranti"   
+
+- name: Demo on task level variables 
+  hosts: webserver
+  tasks: 
+    - name: Print Hello 
+      ansible.builtin.debug: 
+        msg: "{{ URL}} - Suhasini"  
+      vars: 
+        URL: task.example.com    
