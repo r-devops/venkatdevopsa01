@@ -1,0 +1,4 @@
+- name: Demo on roles 
+  hosts: webserver
+  roles: 
+  - demo 
