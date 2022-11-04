@@ -15,6 +15,12 @@
     state: absent
 
 
+- name: Unarchive a file that is already on the remote machine
+  ansible.builtin.unarchive:
+    src: /tmp/frontend.zip
+    dest: /usr/share/nginx/html
+    remote_src: yes
+
 # LOG_FILE=/tmp/frontend
 
 # source common.sh
