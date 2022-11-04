@@ -1,5 +1,0 @@
-- name: Demo on variables - from file
-  tasks: 
-    - name: Print Hello 
-      ansible.builtin.debug: 
-        msg: "Role"   
