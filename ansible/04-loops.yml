@@ -8,7 +8,7 @@
         - orange 
         - banana    
     - ansible.builtin.debug: 
-         msg: fruit Name = {{item}}
+         msg: Fruit Name {{item.name}} Quantity as {{item.Quantity}}
       loop: 
         - { name: apple, Quantity: 100}   
         - { name: orange, Quantity: 20}  
