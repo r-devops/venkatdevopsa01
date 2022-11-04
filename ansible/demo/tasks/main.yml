@@ -1,8 +1,6 @@
 - name: Demo on variables - from file
   hosts: webserver
-  vars_files: 
-    - main.yml  
   tasks: 
     - name: Print Hello 
       ansible.builtin.debug: 
-        msg: "{{ URL}} - Role"   
+        msg: "Role"   
