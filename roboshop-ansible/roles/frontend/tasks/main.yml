@@ -9,7 +9,10 @@
     url: https://github.com/roboshop-devops-project/frontend/archive/main.zip
     dest: /tmp/frontend.zip
 
-
+- name:  Removing Old Web Content
+  ansible.builtin.file:
+    path: /usr/share/nginx/html/
+    state: absent
 
 
 # LOG_FILE=/tmp/frontend
