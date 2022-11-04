@@ -1,5 +1,4 @@
 - name: Demo on variables - from file
-  hosts: webserver
   tasks: 
     - name: Print Hello 
       ansible.builtin.debug: 
