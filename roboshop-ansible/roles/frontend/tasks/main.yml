@@ -24,7 +24,7 @@
 
 - name: Copy files to another location 
   ansible.builtin.copy:
-    src: frontend-main/static/*
+    src: frontend-main/static/
     dest: /usr/share/nginx/html/
     remote_src: yes    
 
