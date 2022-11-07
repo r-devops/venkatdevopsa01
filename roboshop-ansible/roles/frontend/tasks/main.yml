@@ -33,7 +33,7 @@
   ansible.builtin.copy:
     src: default.conf
     dest: /etc/nginx/conf.d
-    remote_src: yes  
+
 
 
 - name: Restart Nginx and re-load
