@@ -1,0 +1,29 @@
+
+- name: Setup NodeJS Repo
+  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+
+
+- name: Install the latest version of nodejs
+  ansible.builtin.yum:
+    name: nodejs
+    state: latest
+
+#CTL+K+C & CTL+K+U
+# NODEJS() {
+    
+#     echo "Setup Nodejs on VM"
+#     curl -sL https://rpm.nodesource.com/setup_lts.x | bash  &>>${LOG_FILE}
+#     StatusCheck $?
+
+#     echo "Installing NodeJS"
+#     yum install nodejs --nogpgcheck -y &>>${LOG_FILE}
+#     StatusCheck $?
+
+#     APP_PREREQ
+
+#     echo " Install NodeJs dependencies "
+#     npm install &>>${LOG_FILE}
+#     StatusCheck $?
+
+#     SYSTEMD_SETUP
+# }

@@ -29,6 +29,7 @@
     remote_src: yes    
 
 
+
 - name: Copy Nginx Configuration to System 
   ansible.builtin.copy:
     src: default.conf
@@ -36,7 +37,7 @@
 
 
 
-- name: Restart Nginx and re-load
+- name: Restart Nginx and reload
   ansible.builtin.systemd:
     name: nginx  
     state: restarted

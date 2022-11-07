@@ -1,0 +1,61 @@
+
+- name: Add the user Roboshop
+  ansible.builtin.user:
+    name: roboshop
+  register: appuser  
+
+- name: Install the latest version of unzip
+  ansible.builtin.yum:
+    name: unzip
+    state: latest
+
+
+- name: Downloading {{COMPONENT}} Web Content
+  ansible.builtin.get_url:
+    url: https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip
+    dest: /tmp/${COMPONENT}.zip
+
+
+- name:  Removing Old  {{COMPONENT}} Web Content
+  ansible.builtin.file:
+    path: /home/roboshop/{{COMPONENT}}
+    state: absent
+
+- name: Unarchive a {{COMPONENT}} folder
+  ansible.builtin.unarchive:
+    src: /tmp/${COMPONENT}.zip
+    dest: /tmp
+    remote_src: yes
+
+
+- name: Create Directory 
+  ansible.builtin.file:
+    path: /home/roboshop/{{COMPONENT}}
+    state: directory
+    owner: roboshop
+    group: roboshop 
+  become_user: roboshop  
+
+
+
+- name: Copy files to another location 
+  ansible.builtin.copy:
+    src: /tmp/{{COMPONENT}}-main
+    dest: /home/roboshop/${COMPONENT}
+    remote_src: yes
+  become_user: roboshop       
+
+# APP_PREREQ() {
+
+
+#     echo " Clean old content - making the script comptable for rerun/re-install"
+#     cd /home/roboshop && rm -rf ${COMPONENT} &>>${LOG_FILE}
+#     StatusCheck $?
+
+#     echo " extracting the component"
+#     unzip /tmp/${COMPONENT}.zip &>>${LOG_FILE}
+#     StatusCheck $?
+
+#     mv ${COMPONENT}-main ${COMPONENT} && cd /home/roboshop/${COMPONENT}
+
+# }
