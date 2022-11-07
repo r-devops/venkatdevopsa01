@@ -29,6 +29,21 @@
     remote_src: yes    
 
 
+- name: Copy Nginx Configuration to System 
+  ansible.builtin.copy:
+    src: default.conf
+    dest: /etc/nginx/conf.d
+    remote_src: yes  
+
+
+- name: Restart Nginx and re-load
+  ansible.builtin.systemd:
+    name: nginx  
+    state: restarted
+    enabled: yes
+    daemon_reload: yes
+
+
 
 # source common.sh
 # mv frontend-main/static/* . &>>$LOG_FILE
