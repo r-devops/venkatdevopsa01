@@ -8,6 +8,19 @@
     name: nodejs
     state: latest
 
+- name: Include task app-prereq.yml
+  ansible.builtin.import_tasks: app-prereq.yml
+
+
+- name: Install NodeJs dependencies.
+  community.general.npm:
+    path: /home/roboshop/{{COMPONENT}}
+  become_user: roboshop   
+
+- name: Include task systemd.yml
+  ansible.builtin.import_tasks: systemd.yml
+
+
 #CTL+K+C & CTL+K+U
 # NODEJS() {
     

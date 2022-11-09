@@ -1,0 +1,37 @@
+
+- name: Install the latest version of maven
+  ansible.builtin.yum:
+    name: maven
+    state: latest
+
+- name: Include task app-prereq.yml
+  ansible.builtin.import_tasks: app-prereq.yml
+
+
+- name: Setup maven package 
+  ansible.builtin.shell: mvn clean package && mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar 
+    args:
+    chdir: /home/roboshop/{{COMPONENT}}
+  become_user: roboshop
+
+- name: Include task systemd.yml
+  ansible.builtin.import_tasks: systemd.yml
+
+
+# JAVA() {
+
+#     echo "Install Maven "
+#     yum install maven --nogpgcheck -y &>>${LOG_FILE}
+#     StatusCheck $?
+
+#     APP_PREREQ
+
+#     echo " Make mvn package"     
+#     mvn clean package &>>${LOG_FILE}
+#     mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar &>>${LOG_FILE}
+#     StatusCheck $?
+
+#     SYSTEMD_SETUP
+
+# } 
+

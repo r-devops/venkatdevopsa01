@@ -1,0 +1,36 @@
+
+- name: Install golang
+  ansible.builtin.yum:
+    name: golang
+    state: latest
+
+- name: Include task app-prereq.yml
+  ansible.builtin.import_tasks: app-prereq.yml
+
+
+- name: Setup go package
+  ansible.builtin.shell: go mod init dispatch  && go get && go build
+    args:
+    chdir: /home/roboshop/{{COMPONENT}}
+  become_user: roboshop
+
+
+- name: Include task systemd.yml
+  ansible.builtin.import_tasks: systemd.yml
+
+
+# GOLANG() {
+
+#     yum install golang -y --nogpgcheck &>>${LOG_FILE}
+#     StatusCheck $?
+
+#     APP_PREREQ
+
+#     go mod init dispatch &>>${LOG_FILE}
+#     go get &>>${LOG_FILE}
+#     go build &>>${LOG_FILE}  
+    
+#     SYSTEMD_SETUP
+
+
+# }
