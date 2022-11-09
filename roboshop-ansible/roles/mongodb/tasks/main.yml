@@ -1,0 +1,60 @@
+
+- name: Copy MongoDB repo 
+  ansible.builtin.copy:
+    src: mongodb.repo
+    dest: /etc/yum.repos.d/
+
+- name: Install MongoDB
+  ansible.builtin.yum:
+    name: mongodb-org
+    state: latest
+
+
+- name: Supports a validate command
+  ansible.builtin.replace:
+    path: /etc/mongod.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+
+- name: Start MongoDB 
+  ansible.builtin.systemd:
+    state: started
+    name: mongod
+    enabled: yes 
+
+
+- name: Download Schema
+  ansible.builtin.get_url:
+    url: https://github.com/roboshop-devops-project/mongodb/archive/main.zip
+    dest: /tmp/mongodb.zip
+
+
+- name: Extract the Schema
+  ansible.builtin.unarchive:
+    src: /tmp/mongodb.zip
+    dest: /tmp/
+    remote_src: yes
+
+- name: Run a js file to load the data into Mongodb 
+  community.mongodb.mongodb_shell:
+    file: 
+     - "/tmp/ mongodb-main/catalogue.js"
+     - "/tmp/ mongodb-main/users.js" 
+    idempotent: yes    
+
+# echo "Configure MongoDB Service"
+# sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
+# StatusCheck $?
+
+# echo "Start MonogDB"
+# systemctl enable mongod &>>${LOG}  && systemctl restart mongod &>>${LOG}
+# StatusCheck $?
+
+
+# echo "Download Schema"
+# curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip" &>>${LOG}
+# StatusCheck $?
+
+# echo "Load Schema"
+# cd /tmp && unzip -o mongodb.zip &>>${LOG}  && cd mongodb-main && mongo < catalogue.js &>>${LOG}  && mongo < users.js &>>${LOG}
+# StatusCheck $?
