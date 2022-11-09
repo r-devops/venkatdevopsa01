@@ -38,8 +38,8 @@
 - name: Run a js file to load the data into Mongodb 
   community.mongodb.mongodb_shell:
     file: 
-     - "/tmp/ mongodb-main/catalogue.js"
-     - "/tmp/ mongodb-main/users.js" 
+     - "/tmp/mongodb-main/catalogue.js"
+     - "/tmp/mongodb-main/users.js" 
     idempotent: yes    
 
 # echo "Configure MongoDB Service"
