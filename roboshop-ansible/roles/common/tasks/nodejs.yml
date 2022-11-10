@@ -3,10 +3,17 @@
   ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
 
-- name: Install the latest version of nodejs
-  ansible.builtin.yum:
-    name: nodejs
-    state: latest
+# - name: Install the latest version of nodejs
+#   ansible.builtin.yum:
+#     name: nodejs
+#     state: latest
+
+
+- name: Copy nodejs Configuration to System 
+  ansible.builtin.copy:
+    src: nodesource-el7.repo
+    dest: /etc/yum.repos.d/
+
 
 - name: Include task app-prereq.yml
   ansible.builtin.import_tasks: app-prereq.yml
