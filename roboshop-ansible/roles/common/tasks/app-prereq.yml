@@ -12,8 +12,8 @@
 
 - name: Downloading {{COMPONENT}} Web Content
   ansible.builtin.get_url:
-    url: https://github.com/roboshop-devops-project/${{COMPONENT}}/archive/main.zip
-    dest: /tmp/${{COMPONENT}}.zip
+    url: https://github.com/roboshop-devops-project/{{COMPONENT}}/archive/main.zip
+    dest: /tmp/{{COMPONENT}}.zip
 
 
 - name:  Removing Old  {{COMPONENT}} Web Content
@@ -23,7 +23,7 @@
 
 - name: Unarchive a {{COMPONENT}} folder
   ansible.builtin.unarchive:
-    src: /tmp/${{COMPONENT}}.zip
+    src: /tmp/{{COMPONENT}}.zip
     dest: /tmp
     remote_src: yes
 
@@ -41,7 +41,7 @@
 - name: Copy files to another location 
   ansible.builtin.copy:
     src: /tmp/{{COMPONENT}}-main
-    dest: /home/roboshop/${{COMPONENT}}
+    dest: /home/roboshop/{{COMPONENT}}
     remote_src: yes
   become_user: roboshop       
 
