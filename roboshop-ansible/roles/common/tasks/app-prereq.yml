@@ -12,8 +12,8 @@
 
 - name: Downloading {{COMPONENT}} Web Content
   ansible.builtin.get_url:
-    url: https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip
-    dest: /tmp/${COMPONENT}.zip
+    url: https://github.com/roboshop-devops-project/${{COMPONENT}}/archive/main.zip
+    dest: /tmp/${{COMPONENT}}.zip
 
 
 - name:  Removing Old  {{COMPONENT}} Web Content
