@@ -37,10 +37,11 @@
   become_user: roboshop  
 
 
-- name: Copy file with owner and permissions
+- name: rename a folder 
   ansible.builtin.copy:
     src: /tmp/{{COMPONENT}}-main
     dest: /tmp/{{COMPONENT}}
+    state: directory
     remote_src: yes
   become_user: roboshop     
 
