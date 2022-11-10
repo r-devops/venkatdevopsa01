@@ -1,12 +1,12 @@
 - name: Update SystemD Service File
   ansible.builtin.copy:
-    src: /home/roboshop/${COMPONENT}/systemd.service
-    dest: /etc/systemd/system/${COMPONENT}.service
+    src: /home/roboshop/${{COMPONENT}}/systemd.service
+    dest: /etc/systemd/system/${{COMPONENT}}.service
     remote_src: yes
 
-- name: Restart ${COMPONENT} and reload
+- name: Restart ${{COMPONENT}} and reload
   ansible.builtin.systemd:
-    name: ${COMPONENT}   
+    name: ${{COMPONENT}}   
     state: restarted
     enabled: yes
     daemon_reload: yes        
