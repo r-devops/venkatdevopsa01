@@ -37,9 +37,7 @@
 
 
 - name: Load Mongodb DB  
-  ansible.builtin.shell: mongo < catalogue.js && mongo < users.js
-    args:
-    chdir: /tmp/mongodb-main/
+  ansible.builtin.shell: mongo < /tmp/mongodb-main/catalogue.js && mongo < /tmp/mongodb-main/users.js
 
 
 # - name: Run a js file to load the data into Mongodb 
