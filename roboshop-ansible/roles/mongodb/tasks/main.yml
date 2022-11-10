@@ -35,12 +35,19 @@
     dest: /tmp/
     remote_src: yes
 
-- name: Run a js file to load the data into Mongodb 
-  community.mongodb.mongodb_shell:
-    file: 
-     - "/tmp/mongodb-main/catalogue.js"
-     - "/tmp/mongodb-main/users.js" 
-    idempotent: yes    
+
+- name: Load Mongodb DB  
+  ansible.builtin.shell: mongo < catalogue.js && mongo < users.js
+    args:
+    chdir: /tmp/mongodb-main/
+
+
+# - name: Run a js file to load the data into Mongodb 
+#   community.mongodb.mongodb_shell:
+#     file: 
+#      - "/tmp/mongodb-main/catalogue.js"
+#      - "/tmp/mongodb-main/users.js" 
+#     idempotent: yes    
 
 # echo "Configure MongoDB Service"
 # sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
