@@ -39,7 +39,6 @@
 
 - name: rename a folder
   ansible.builtin.shell: mv  /tmp/{{COMPONENT}}-main  /tmp/{{COMPONENT}}
-  become_user: roboshop
 
 # - name: rename a folder 
 #   ansible.builtin.copy:
