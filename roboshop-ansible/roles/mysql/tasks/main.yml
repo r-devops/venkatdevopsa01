@@ -21,7 +21,7 @@
 
 - name: print out registered variable 
   ansible.builtin.debug:
-    msg: "{{out.stdout}}" 
+    msg: "{{out.stdout_lines[-1]}}" 
 
 # LOG_FILE=/tmp/mysql
 # source ./common.sh
