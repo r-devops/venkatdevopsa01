@@ -25,10 +25,10 @@
 
 
 - name: mysql temporary password  
-  ansible.builtin.shell: mysql_secure_installation -u root -p "{{ROBOSHOP_MYSQL_PASSWORD}}"
+  ansible.builtin.shell: mysql_secure_installation -uroot -p"{{ROBOSHOP_MYSQL_PASSWORD}}"
 
 - name: mysql temporary password  
-  ansible.builtin.shell: mysql_secure_installation -u root -p "{{out.stdout_lines[-1]}}" {{ROBOSHOP_MYSQL_PASSWORD}}
+  ansible.builtin.shell: mysql_secure_installation -uroot -p"{{out.stdout_lines[-1]}}" {{ROBOSHOP_MYSQL_PASSWORD}}
 
  
 
