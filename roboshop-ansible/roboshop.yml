@@ -10,8 +10,14 @@
 #   roles: 
 #     - mongodb     
 
-- name: Catalogue Setup
-  hosts: CATALOGUE
+# - name: Catalogue Setup
+#   hosts: CATALOGUE
+#   become: true 
+#   roles: 
+#     - catalogue  
+
+- name: REDIS Setup
+  hosts: REDIS
   become: true 
   roles: 
-    - catalogue  
+    - redis      
