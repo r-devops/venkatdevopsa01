@@ -1,0 +1,39 @@
+
+- name: Copy redis repo Configuration to System 
+  ansible.builtin.copy:
+    src: redis.repo
+    dest: /etc/yum.repos.d/
+
+- name: Install the redis on the VM 
+  ansible.builtin.yum:
+    name: redis-6.2.7
+    state: latest
+
+
+- name: Update Redis Listen address from 127.0.0.1 to 0.0.0.0
+  ansible.builtin.replace:
+    path: 
+      - /etc/redis.conf
+      - /etc/redis/redis.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+
+
+
+- name: Restart redis and reload
+  ansible.builtin.systemd:
+    name: redis  
+    state: restarted
+    enabled: yes
+    daemon_reload: yes
+
+
+# echo "Update Redis Listen address from 127.0.0.1 to 0.0.0.0"
+# sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf /etc/redis/redis.conf
+# StatusCheck $?
+
+# systemctl enable redis &>>$LOG_FILE
+
+# echo "Start Redis"
+# systemctl restart redis &>>$LOG_FILE
+# StatusCheck $?
