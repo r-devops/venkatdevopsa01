@@ -23,15 +23,21 @@
 #     - redis      
 
 
-- name: USER Setup
-  hosts: USER
-  become: true 
-  roles: 
-    - user  
+# - name: USER Setup
+#   hosts: USER
+#   become: true 
+#   roles: 
+#     - user  
 
 
-- name: CART Setup
-  hosts: CART
+# - name: CART Setup
+#   hosts: CART
+#   become: true 
+#   roles: 
+#     - cart           
+
+- name: MYSQL Setup
+  hosts: MYSQL
   become: true 
   roles: 
-    - cart           
+    - mysql          
