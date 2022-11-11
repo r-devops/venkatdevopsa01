@@ -23,6 +23,12 @@
   ansible.builtin.debug:
     msg: "{{out.stdout_lines[-1]}}" 
 
+- name: mysql temporary password  
+  ansible.builtin.shell: mysql_secure_installation -u root -p "{{out.stdout_lines[-1]}}" {{ROBOSHOP_MYSQL_PASSWORD}}
+
+ 
+
+
 # LOG_FILE=/tmp/mysql
 # source ./common.sh
 
