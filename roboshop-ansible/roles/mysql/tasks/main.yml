@@ -4,10 +4,18 @@
     src: mysql.repo
     dest: /etc/yum.repos.d/
 
-- name: Install mysql
-  ansible.builtin.yum:
-    name: mysql-community-server
-    state: latest
+- name: Disable MySQL 8 Version
+  ansible.builtin.shell: dnf module disable mysql -y
+
+- name: Install MySQL Server Server and Python3 Dependency packages
+  ansible.builtin.dnf:
+    name: "{{item}}"
+    state: installed
+  loop:
+    - mysql-community-devel
+    - mysql-community-server
+    - gcc
+    - python36-devel
 
 - name: Start mysql 
   ansible.builtin.systemd:
