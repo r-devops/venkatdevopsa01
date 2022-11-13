@@ -31,16 +31,29 @@
    - exit.sql
    - changepasswd.sql 
 
-- name: mysql temporary password  
-  ansible.builtin.shell:  mysql --connect-expired-password -uroot -p"{{out.stdout_lines[-1]}}" < /tmp/exit.sql
+- name: mysql chnage password  
+  ansible.builtin.shell:  mysql --connect-expired-password -uroot -p"{{out.stdout_lines[-1]}}" < /tmp/changepasswd.sql
   ignore_errors: yes
   register: mysql_conn_status
 
-- name: mysql temporary password  
-  ansible.builtin.shell: mysql --connect-expired-password -uroot -p"{{ROBOSHOP_MYSQL_PASSWORD}}" < /tmp/changepasswd.sql 
+- name: mysql validate password  
+  ansible.builtin.shell: mysql --connect-expired-password -uroot -p"{{ROBOSHOP_MYSQL_PASSWORD}}" < /tmp/exit.sql 
   when: mysql_conn_status is failed
 
+- name: Downloading Nginx Web Content
+  ansible.builtin.get_url:
+    url: https://github.com/roboshop-devops-project/mysql/archive/main.zip
+    dest: /tmp/mysql.zip
 
+- name: Unarchive a file that is already on the remote machine
+  ansible.builtin.unarchive:
+    src: /tmp/mysql.zip
+    dest: /tmp/
+    remote_src: yes
+
+- name: Loading shipping data  
+  ansible.builtin.shell: mysql --connect-expired-password -uroot -p"{{ROBOSHOP_MYSQL_PASSWORD}}" < /tmp/mysql-main/shipping.sql 
+  
 
 
 # LOG_FILE=/tmp/mysql
