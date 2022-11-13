@@ -27,7 +27,7 @@
   ansible.builtin.copy:
     src: "{{item}}" 
     dest: /tmp/
-  loop
+  loop:
    - exit.sql
    - changepasswd.sql 
 
