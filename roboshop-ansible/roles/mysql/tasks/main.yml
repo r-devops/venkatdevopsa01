@@ -25,10 +25,11 @@
 
 - name: copy the mysql files to server 
   ansible.builtin.copy:
-    src: 
-      - exit.sql
-      - changepasswd.sql 
+    src: "{{item}}" 
     dest: /tmp/
+  loop
+   - exit.sql
+   - changepasswd.sql 
 
 # - name: mysql temporary password  
 #   ansible.builtin.shell:  mysql --connect-expired-password -uroot -p"{{out.stdout_lines[-1]}}" < /tmp/exit.sql
