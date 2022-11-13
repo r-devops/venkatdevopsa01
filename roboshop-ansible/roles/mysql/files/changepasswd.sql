@@ -1,2 +1,2 @@
-SET PASSWORD FOR 'root'@'localhost' = PASSWORD('{{ROBOSHOP_MYSQL_PASSWORD}}');
+SET PASSWORD FOR 'root'@'localhost' = PASSWORD('RoboShop@1');
 FLUSH PRIVILEGES;

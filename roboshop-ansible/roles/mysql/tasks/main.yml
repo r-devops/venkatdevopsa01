@@ -31,19 +31,16 @@
    - exit.sql
    - changepasswd.sql 
 
-# - name: mysql temporary password  
-#   ansible.builtin.shell:  mysql --connect-expired-password -uroot -p"{{out.stdout_lines[-1]}}" < /tmp/exit.sql
-#   ignore_errors: yes
-#   register: mysql_conn_status
+- name: mysql temporary password  
+  ansible.builtin.shell:  mysql --connect-expired-password -uroot -p"{{out.stdout_lines[-1]}}" < /tmp/exit.sql
+  ignore_errors: yes
+  register: mysql_conn_status
 
-# - name: mysql temporary password  
-#   ansible.builtin.shell: mysql --connect-expired-password -uroot -p"{{ROBOSHOP_MYSQL_PASSWORD}}" < /tmp/changepasswd.sql 
+- name: mysql temporary password  
+  ansible.builtin.shell: mysql --connect-expired-password -uroot -p"{{ROBOSHOP_MYSQL_PASSWORD}}" < /tmp/changepasswd.sql 
+  when: mysql_conn_status is failed
 
 
-# - name: mysql temporary password  
-#   ansible.builtin.shell:  mysql --connect-expired-password -uroot -p"{{out.stdout_lines[-1]}}" {{ROBOSHOP_MYSQL_PASSWORD}}
-
- 
 
 
 # LOG_FILE=/tmp/mysql
