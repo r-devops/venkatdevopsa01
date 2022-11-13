@@ -37,7 +37,7 @@
     dest: /tmp/
 
 - name: mysql temporary password  
-  ansible.builtin.shell: mysql_secure_installation -uroot -p"{{ROBOSHOP_MYSQL_PASSWORD}}" < /tmp/exit.sql 
+  ansible.builtin.shell: mysql --connect-expired-password -uroot -p"{{ROBOSHOP_MYSQL_PASSWORD}}" < /tmp/exit.sql 
 
 - name: mysql temporary password  
   ansible.builtin.shell: mysql_secure_installation -uroot -p"{{out.stdout_lines[-1]}}" {{ROBOSHOP_MYSQL_PASSWORD}}
