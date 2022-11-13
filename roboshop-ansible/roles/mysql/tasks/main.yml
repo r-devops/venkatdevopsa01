@@ -23,24 +23,24 @@
   ansible.builtin.debug:
     msg: "{{out.stdout_lines[-1]}}" 
 
-- name: Check MySQL Credentials
-  community.mysql.mysql_info:
-    login_user: root
-    login_password: "{{ROBOSHOP_MYSQL_PASSWORD}}"
-    filter: version
-  ignore_errors: yes
-  register: mysql_conn_status
-
-- name: setup  mysql repo 
+- name: copy the mysql files to server 
   ansible.builtin.copy:
-    src: exit.sql
+    src: 
+      - exit.sql
+      - changepasswd.sql 
     dest: /tmp/
 
-- name: mysql temporary password  
-  ansible.builtin.shell: mysql --connect-expired-password -uroot -p"{{ROBOSHOP_MYSQL_PASSWORD}}" < /tmp/exit.sql 
+# - name: mysql temporary password  
+#   ansible.builtin.shell:  mysql --connect-expired-password -uroot -p"{{out.stdout_lines[-1]}}" < /tmp/exit.sql
+#   ignore_errors: yes
+#   register: mysql_conn_status
 
-- name: mysql temporary password  
-  ansible.builtin.shell: mysql_secure_installation -uroot -p"{{out.stdout_lines[-1]}}" {{ROBOSHOP_MYSQL_PASSWORD}}
+# - name: mysql temporary password  
+#   ansible.builtin.shell: mysql --connect-expired-password -uroot -p"{{ROBOSHOP_MYSQL_PASSWORD}}" < /tmp/changepasswd.sql 
+
+
+# - name: mysql temporary password  
+#   ansible.builtin.shell:  mysql --connect-expired-password -uroot -p"{{out.stdout_lines[-1]}}" {{ROBOSHOP_MYSQL_PASSWORD}}
 
  
 
