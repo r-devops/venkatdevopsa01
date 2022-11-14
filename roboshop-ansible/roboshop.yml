@@ -50,8 +50,17 @@
 #     - shipping      
 
 
-- name: RABBITMQ
-  hosts: RABBITMQ
+# - name: RABBITMQ
+#   hosts: RABBITMQ
+#   become: true 
+#   roles: 
+#     - rabbitmq      
+
+
+
+
+- name: PAYMENT
+  hosts: PAYMENT
   become: true 
   roles: 
-    - rabbitmq          
+    - payment          
