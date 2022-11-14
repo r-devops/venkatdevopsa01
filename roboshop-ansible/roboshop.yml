@@ -36,8 +36,15 @@
 #   roles: 
 #     - cart           
 
-- name: MYSQL Setup
-  hosts: MYSQL
+# - name: MYSQL Setup
+#   hosts: MYSQL
+#   become: true 
+#   roles: 
+#     - mysql          
+
+
+- name: SHIPPING Setup
+  hosts: SHIPPING
   become: true 
   roles: 
-    - mysql          
+    - shipping      

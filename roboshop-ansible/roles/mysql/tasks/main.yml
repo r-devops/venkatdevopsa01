@@ -40,7 +40,7 @@
   ansible.builtin.shell: mysql --connect-expired-password -uroot -p"{{ROBOSHOP_MYSQL_PASSWORD}}" < /tmp/exit.sql 
   when: mysql_conn_status is failed
 
-- name: Downloading Nginx Web Content
+- name: Downloading Mysql Web Content
   ansible.builtin.get_url:
     url: https://github.com/roboshop-devops-project/mysql/archive/main.zip
     dest: /tmp/mysql.zip
