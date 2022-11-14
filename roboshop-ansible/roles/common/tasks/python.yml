@@ -11,10 +11,14 @@
 - name: Include task app-prereq.yml
   ansible.builtin.import_tasks: app-prereq.yml
 
+# - name: Install specified python requirements offline from a local directory with downloaded packages
+#   ansible.builtin.pip:
+#     requirements: /home/roboshop/{{COMPONENT}}/requirements.txt
+#     executable: pip3
+
 - name: Install specified python requirements offline from a local directory with downloaded packages
-  ansible.builtin.pip:
-    requirements: /home/roboshop/{{COMPONENT}}/requirements.txt
-    executable: pip3
+  ansible.builtin.shell: cd /home/roboshop/{{COMPONENT}} &&  pip3 install -r requirements.txt
+
 
 - name: Copy Payment Configuration to System 
   ansible.builtin.copy:
