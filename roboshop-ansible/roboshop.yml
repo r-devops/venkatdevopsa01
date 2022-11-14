@@ -43,8 +43,15 @@
 #     - mysql          
 
 
-- name: SHIPPING Setup
-  hosts: SHIPPING
+# - name: SHIPPING Setup
+#   hosts: SHIPPING
+#   become: true 
+#   roles: 
+#     - shipping      
+
+
+- name: RABBITMQ
+  hosts: RABBITMQ
   become: true 
   roles: 
-    - shipping      
+    - rabbitmq          

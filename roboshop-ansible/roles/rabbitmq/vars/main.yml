@@ -1,0 +1,3 @@
+COMPONENT: rabbitmq
+RABBITMQ_USER: roboshop
+RABBITMQ_PASSWORD: roboshop123

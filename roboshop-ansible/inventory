@@ -16,3 +16,10 @@
 10.0.0.13 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321
 [SHIPPING]
 10.0.0.14 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321
+[RABBITMQ]
+10.0.0.15 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321
+[PAYMENT]
+10.0.0.16 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321
+[DISPATCH]
+10.0.0.17 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321
+
