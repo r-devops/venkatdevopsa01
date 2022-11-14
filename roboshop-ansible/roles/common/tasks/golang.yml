@@ -10,7 +10,7 @@
 
 - name: Setup go package
   ansible.builtin.shell: go mod init dispatch  && go get && go build
-    args:
+  args:
     chdir: /home/roboshop/{{COMPONENT}}
   become_user: roboshop
 
