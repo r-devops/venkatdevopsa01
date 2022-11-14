@@ -4,11 +4,11 @@
   roles: 
     - frontend 
 
-- name: MongoDB Setup
-  hosts: MONGODB
-  become: true 
-  roles: 
-    - mongodb     
+# - name: MongoDB Setup
+#   hosts: MONGODB
+#   become: true 
+#   roles: 
+#     - mongodb     
 
 - name: Catalogue Setup
   hosts: CATALOGUE
