@@ -5,7 +5,7 @@
 [MONGODB]
 10.0.0.9 
 [CATALOGUE]
-10.0.0.10 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321 ansible_sudo_pass=DevOps654321
+10.0.0.10 
 [REDIS]
 10.0.0.12 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321 ansible_sudo_pass=DevOps654321
 [USER]
