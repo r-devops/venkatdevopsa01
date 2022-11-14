@@ -59,8 +59,16 @@
 
 
 
-- name: PAYMENT
-  hosts: PAYMENT
+# - name: PAYMENT
+#   hosts: PAYMENT
+#   become: true 
+#   roles: 
+#     - payment       
+
+
+
+- name: DISPATCH
+  hosts: DISPATCH
   become: true 
   roles: 
-    - payment          
+    - dispatch         
