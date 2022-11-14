@@ -36,6 +36,11 @@
     group: roboshop 
   become_user: roboshop  
 
+- name:  Removing Old  {{COMPONENT}} Web Content under temp
+  ansible.builtin.file:
+    path: /tmp/{{COMPONENT}}
+    state: absent
+
 
 - name: rename a folder
   ansible.builtin.shell: mv  /tmp/{{COMPONENT}}-main  /tmp/{{COMPONENT}}
