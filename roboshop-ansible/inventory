@@ -3,23 +3,23 @@
 [FRONTEND]
 10.0.0.11
 [MONGODB]
-10.0.0.9 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321
+10.0.0.9 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321 ansible_sudo_pass=DevOps654321
 [CATALOGUE]
-10.0.0.10 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321
+10.0.0.10 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321 ansible_sudo_pass=DevOps654321
 [REDIS]
-10.0.0.12 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321
+10.0.0.12 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321 ansible_sudo_pass=DevOps654321
 [USER]
-10.0.0.12 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321
+10.0.0.12 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321 ansible_sudo_pass=DevOps654321
 [CART]
-10.0.0.13 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321
+10.0.0.13 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321 ansible_sudo_pass=DevOps654321
 [MYSQL]
-10.0.0.13 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321
+10.0.0.13 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321 ansible_sudo_pass=DevOps654321
 [SHIPPING]
-10.0.0.14 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321
+10.0.0.14 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321 ansible_sudo_pass=DevOps654321
 [RABBITMQ]
-10.0.0.15 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321
+10.0.0.15 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321 ansible_sudo_pass=DevOps654321
 [PAYMENT]
-10.0.0.16 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321
+10.0.0.16 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321 ansible_sudo_pass=DevOps654321
 [DISPATCH]
-10.0.0.17 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321
+10.0.0.17 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321 ansible_sudo_pass=DevOps654321
 
