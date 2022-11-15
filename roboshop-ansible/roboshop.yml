@@ -2,7 +2,12 @@
   hosts: FRONTEND
   become: true 
   roles: 
-    - frontend 
+    - frontend
+   
+- name: cleanup 
+  hosts: localhost 
+  tasks: 
+    - shell: rm -rf /home/centos/.ansible
 
 - name: MongoDB Setup
   hosts: MONGODB
