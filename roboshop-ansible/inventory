@@ -3,9 +3,9 @@
 [FRONTEND]
 10.0.0.11
 [MONGODB]
-10.0.0.9 
+10.0.0.9 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321 ansible_sudo_pass=DevOps654321
 [CATALOGUE]
-10.0.0.10 
+10.0.0.10 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321 ansible_sudo_pass=DevOps654321
 [REDIS]
 10.0.0.12 ansible_ssh_user=centos ansible_ssh_pass=DevOps654321 ansible_sudo_pass=DevOps654321
 [USER]
