@@ -5,10 +5,11 @@
     - frontend
    
 - name: cleanup 
-  hosts: localhost 
+  hosts: local
   tasks: 
     - shell: rm -rf /home/centos/.ansible
-
+      name: rm 
+      
 - name: MongoDB Setup
   hosts: MONGODB
   become: true 
