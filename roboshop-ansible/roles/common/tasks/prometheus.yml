@@ -17,7 +17,7 @@
 
 - name: Copy node exporter to bin 
   ansible.builtin.copy:
-    src: /tmp/node_exporter-1.2.2.linux-amd/node_exporter
+    src: /tmp/node_exporter-1.4.0.linux-amd64/node_exporter
     dest: /usr/local/bin/
     remote_src: yes
 
