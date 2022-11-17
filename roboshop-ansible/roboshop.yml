@@ -16,11 +16,11 @@
   roles: 
     - catalogue  
 
-# - name: REDIS Setup
-#   hosts: REDIS
-#   become: true 
-#   roles: 
-#     - redis      
+- name: REDIS Setup
+  hosts: REDIS
+  become: true 
+  roles: 
+    - redis      
 
 
 # - name: USER Setup

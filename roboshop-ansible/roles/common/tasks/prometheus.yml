@@ -60,4 +60,5 @@
   # 683  sudo systemctl start node_exporter
   # 684  sudo systemctl status node_exporter
   # 685  sudo systemctl enable node_exporter
+  #node_exporter.service
 
