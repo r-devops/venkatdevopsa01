@@ -23,11 +23,11 @@
     - redis      
 
 
-# - name: USER Setup
-#   hosts: USER
-#   become: true 
-#   roles: 
-#     - user  
+- name: USER Setup
+  hosts: USER
+  become: true 
+  roles: 
+    - user  
 
 
 # - name: CART Setup
