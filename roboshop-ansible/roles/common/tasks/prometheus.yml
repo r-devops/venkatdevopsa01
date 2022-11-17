@@ -14,6 +14,7 @@
 
 - name: adding a user for node exporter installation 
   ansible.builtin.shell: useradd -rs /bin/false nodeusr
+  ignore_errors: yes
 
 - name: Copy node exporter to bin 
   ansible.builtin.copy:
