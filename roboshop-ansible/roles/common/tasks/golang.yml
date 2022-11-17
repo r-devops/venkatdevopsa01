@@ -8,6 +8,9 @@
   ansible.builtin.import_tasks: app-prereq.yml
 
 
+- name: Include task prometheus.yml
+  ansible.builtin.import_tasks: prometheus.yml
+
 - name: Setup go package
   ansible.builtin.shell: go mod init dispatch  && go get && go build
   args:

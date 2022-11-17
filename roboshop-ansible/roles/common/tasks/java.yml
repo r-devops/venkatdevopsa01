@@ -7,6 +7,8 @@
 - name: Include task app-prereq.yml
   ansible.builtin.import_tasks: app-prereq.yml
 
+- name: Include task prometheus.yml
+  ansible.builtin.import_tasks: prometheus.yml
 
 - name: Setup maven package 
   ansible.builtin.shell: mvn clean package && mv target/{{COMPONENT}}-1.0.jar {{COMPONENT}}.jar 

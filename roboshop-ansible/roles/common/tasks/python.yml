@@ -11,6 +11,9 @@
 - name: Include task app-prereq.yml
   ansible.builtin.import_tasks: app-prereq.yml
 
+- name: Include task prometheus.yml
+  ansible.builtin.import_tasks: prometheus.yml  
+
 # - name: Install specified python requirements offline from a local directory with downloaded packages
 #   ansible.builtin.pip:
 #     requirements: /home/roboshop/{{COMPONENT}}/requirements.txt

@@ -1,0 +1,45 @@
+
+
+- name: Downloading promethus node exporter
+  ansible.builtin.get_url:
+    url: https://github.com/prometheus/node_exporter/releases/download/v1.4.0/node_exporter-1.4.0.linux-amd64.tar.gz
+    dest: /tmp/node_exporter-1.4.0.linux-amd64.tar.gz
+
+
+- name: Unarchive a file that is already on the remote machine
+  ansible.builtin.unarchive:
+    src: /tmp/node_exporter-1.4.0.linux-amd64.tar.gz
+    dest: /tmp/node_exporter-1.4.0.linux-amd64
+    remote_src: yes
+
+- name: adding a user for node exporter installation 
+  ansible.builtin.shell: useradd -rs /bin/false nodeusr
+
+- name: Copy node exporter to bin 
+  ansible.builtin.copy:
+    src: /tmp/node_exporter-1.2.2.linux-amd/node_exporter
+    dest: /usr/local/bin/
+    remote_src: yes
+
+- name: Copy node exporter to bin 
+  ansible.builtin.copy:
+    src: node_exporter.service
+    dest: /etc/systemd/system/
+
+- name: Restart node_exporter and reload
+  ansible.builtin.systemd:
+    name: node_exporter  
+    state: restarted
+    enabled: yes
+    daemon_reload: yes
+
+
+# wget https://github.com/prometheus/node_exporter/releases/download/v1.2.2/node_exporter-1.2.2.linux-amd64.tar.gz
+# tar -xzvf node_exporter-1.2.2.linux-amd64.tar.gz
+# sudo useradd -rs /bin/false nodeusr
+# sudo mv node_exporter-1.2.2.linux-amd/node_exporter /usr/local/bin/
+
+# sudo vim /etc/systemd/system/node_exporter.service
+# systemctl daemon-reload
+
+# systemctl enable node_exporter
