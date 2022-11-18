@@ -28,6 +28,10 @@
     enabled: yes
     daemon_reload: yes
 
+- name: Import common role for promethus 
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: prometheus
 
 # echo "Update Redis Listen address from 127.0.0.1 to 0.0.0.0"
 # sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf /etc/redis/redis.conf

@@ -55,6 +55,11 @@
   ansible.builtin.shell: mysql --connect-expired-password -uroot -p"{{ROBOSHOP_MYSQL_PASSWORD}}" < /tmp/mysql-main/shipping.sql 
   
 
+- name: Import common role for promethus 
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: prometheus
+    
 
 # LOG_FILE=/tmp/mysql
 # source ./common.sh
