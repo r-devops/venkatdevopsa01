@@ -4,11 +4,11 @@
 #   roles: 
 #     - frontend
    
-- name: MongoDB Setup
-  hosts: MONGODB
-  become: true 
-  roles: 
-   - mongodb     
+# - name: MongoDB Setup
+#   hosts: MONGODB
+#   become: true 
+#   roles: 
+#    - mongodb     
 
 # - name: Catalogue Setup
 #   hosts: CATALOGUE
@@ -16,11 +16,11 @@
 #   roles: 
 #     - catalogue  
 
-- name: REDIS Setup
-  hosts: REDIS
-  become: true 
-  roles: 
-    - redis      
+# - name: REDIS Setup
+#   hosts: REDIS
+#   become: true 
+#   roles: 
+#     - redis      
 
 
 # - name: USER Setup
@@ -30,17 +30,17 @@
 #     - user  
 
 
-# - name: CART Setup
-#   hosts: CART
-#   become: true 
-#   roles: 
-#     - cart           
-
-- name: MYSQL Setup
-  hosts: MYSQL
+- name: CART Setup
+  hosts: CART
   become: true 
   roles: 
-    - mysql          
+    - cart           
+
+# - name: MYSQL Setup
+#   hosts: MYSQL
+#   become: true 
+#   roles: 
+#     - mysql          
 
 
 # - name: SHIPPING Setup
@@ -50,11 +50,11 @@
 #     - shipping      
 
 
-- name: RABBITMQ
-  hosts: RABBITMQ
-  become: true 
-  roles: 
-    - rabbitmq      
+# - name: RABBITMQ
+#   hosts: RABBITMQ
+#   become: true 
+#   roles: 
+#     - rabbitmq      
 
 
 
