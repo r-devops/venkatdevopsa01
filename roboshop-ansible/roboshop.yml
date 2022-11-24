@@ -1,8 +1,8 @@
-# - name: Frontend Setup
-#   hosts: FRONTEND
-#   become: true 
-#   roles: 
-#     - frontend
+- name: Frontend Setup
+  hosts: FRONTEND
+  become: true 
+  roles: 
+    - frontend
    
 # - name: MongoDB Setup
 #   hosts: MONGODB
@@ -30,11 +30,11 @@
 #     - user  
 
 
-- name: CART Setup
-  hosts: CART
-  become: true 
-  roles: 
-    - cart           
+# - name: CART Setup
+#   hosts: CART
+#   become: true 
+#   roles: 
+#     - cart           
 
 # - name: MYSQL Setup
 #   hosts: MYSQL
