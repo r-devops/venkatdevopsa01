@@ -3,6 +3,8 @@ pipeline {
     tools {
        terraform 'terraform'
     }
+    
+ 
     stages {
         stage('Git checkout') {
            steps{
@@ -15,7 +17,7 @@ pipeline {
                ls
                cd venkatdevopsa01/
                cd roboshop-terraform/
-               terraform fmt
+               terraform fmt -no-color
                ''' 
             }
         }
@@ -26,7 +28,7 @@ pipeline {
                cd venkatdevopsa01/
                cd roboshop-terraform/
                terraform init
-               terraform plan
+               terraform plan -var="client_secret=XXXX"  -no-color
                ''' 
             }
         }
@@ -36,18 +38,18 @@ pipeline {
                ls
                cd venkatdevopsa01/
                cd roboshop-terraform/
-               terraform apply -auto-approve
+               terraform apply  -var="client_secret=XXXX" -auto-approve  -no-color
                ''' 
             }
         }    
         stage('terraform remove') {
             steps{
-               sh ' cd .. '
-            sh 'rf venkatdevopsa01 '
+             sh 'rf venkatdevopsa01 '
             }        
             
         }
     }
+
 
     
 }
