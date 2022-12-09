@@ -19,3 +19,8 @@ provider "azurerm" {
 }
 
 
+variable "client_secret" {
+  default     = " "
+  description = "password to login to Azure"
+}
+

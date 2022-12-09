@@ -1,0 +1,53 @@
+pipeline {
+    agent any
+    tools {
+       terraform 'terraform'
+    }
+    stages {
+        stage('Git checkout') {
+           steps{
+               sh  'git clone https://github.com/r-devops/venkatdevopsa01.git'
+            }
+        }
+        stage('terraform format check') {
+            steps{
+               sh '''
+               ls
+               cd venkatdevopsa01/
+               cd roboshop-terraform/
+               terraform fmt
+               ''' 
+            }
+        }
+        stage('terraform Init') {
+            steps{
+               sh '''
+               ls
+               cd venkatdevopsa01/
+               cd roboshop-terraform/
+               terraform init
+               terraform plan
+               ''' 
+            }
+        }
+        stage('terraform apply') {
+            steps{
+               sh '''
+               ls
+               cd venkatdevopsa01/
+               cd roboshop-terraform/
+               terraform apply -auto-approve
+               ''' 
+            }
+        }    
+        stage('terraform remove') {
+            steps{
+               sh ' cd .. '
+            sh 'rf venkatdevopsa01 '
+            }        
+            
+        }
+    }
+
+    
+}
